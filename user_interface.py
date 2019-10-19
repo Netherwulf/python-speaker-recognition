@@ -10,7 +10,7 @@ class MyWidget(QtWidgets.QWidget):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
 
-        self.result_text = ["Użytkownik zidentyfikowany - Kamil", "Użytkownik niezidentyfikowany"]
+        self.result_text = ["Użytkownik zidentyfikowany - Julita", "Użytkownik niezidentyfikowany"]
 
         self.start_button = QtWidgets.QPushButton("Rozpocznij nagranie!")
         self.exit_button = QtWidgets.QPushButton("Wyjdź")
@@ -32,18 +32,18 @@ class MyWidget(QtWidgets.QWidget):
         self.text.setText("Powiedz hasło")
         # self.start_button.setEnabled(False)
         # self.exit_button.setEnabled(False)
-        record_to_file(os.path.join("/Users/netherwulf/Documents/Repozytoria Git/python-speaker-recognition", "demo.wav"))
+        record_to_file(os.path.join("C:\\Users\\user\\Documents\\roboczy\\Repozytoria Git\\python-speaker-recognition", "demo.wav"))
         self.text.setText(" ")
         self.text.setText("Przetwarzam...")
         print(os.path.join("/Users/netherwulf/Documents", "demo.wav"))
-        result = task_predict(os.path.join("/Users/netherwulf/Documents/Repozytoria Git/python-speaker-recognition", "demo.wav"),
-                              os.path.join("/Users/netherwulf/Documents/Repozytoria Git/python-speaker-recognition",
+        result = task_predict(os.path.join("C:\\Users\\user\\Documents\\roboczy\\Repozytoria Git\\python-speaker-recognition", "demo.wav"),
+                              os.path.join("C:\\Users\\user\\Documents\\roboczy\\Repozytoria Git\\python-speaker-recognition",
                                            "model.out"))
-        if os.path.exists(os.path.join("/Users/netherwulf/Documents/Repozytoria Git/python-speaker-recognition", "demo.wav")):
-            os.remove(os.path.join("/Users/netherwulf/Documents/Repozytoria Git/python-speaker-recognition", "demo.wav"))
+        if os.path.exists(os.path.join("C:\\Users\\user\\Documents\\roboczy\\Repozytoria Git\\python-speaker-recognition", "demo.wav")):
+            os.remove(os.path.join("C:\\Users\\user\\Documents\\roboczy\\Repozytoria Git\\python-speaker-recognition", "demo.wav"))
         self.text.setText(" ")
         self.text.setText(
-            self.result_text[0] if str(result[0]) == "latarkaKamil" and 0.5 < float(result[1]) < 0.52 else
+            self.result_text[0] if str(result[0]) == "latarkaKamil" and 0.508 < float(result[1]) < 0.520 else
             self.result_text[1])
         # self.start_button.setEnabled(True)
         # self.exit_button.setEnabled(True)
